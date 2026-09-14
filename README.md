@@ -1,4 +1,4 @@
-# FMG Schema-Mapping Agent
+# Schema-Mapping Agent
 
 A Python AI agent that runs the two established workflows from this project —
 **row normalization** and **AI-assisted schema mapping** — and produces the **NEO**,
