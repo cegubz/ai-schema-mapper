@@ -1,0 +1,25 @@
+# azd project file for the FMG Schema-Mapping Agent.
+#
+# Native Foundry Hosted Agent flow (recommended):
+#   az login
+#   azd ai agent init     # adds the Foundry agent definition (project, model deployment,
+#                         # protocol, RBAC) on top of this file — it is the source of truth
+#                         # for the agent host and will augment/scaffold as needed.
+#   azd up                # packages source (ZIP) or builds the container, deploys, and
+#                         # exposes https://{project_endpoint}/agents/{agent_name}
+#
+# The services block below also lets you deploy the same image to Azure Container Apps
+# as a fallback host. Remove/keep depending on which target you use.
+
+name: fmg-schema-mapping-agent
+metadata:
+  template: fmg-schema-mapping-agent@1.0.0
+
+services:
+  agent:
+    project: .
+    language: python
+    host: containerapp        # fallback host; `azd ai agent init` manages the Foundry host
+    docker:
+      path: ./Dockerfile
+      platform: linux/amd64

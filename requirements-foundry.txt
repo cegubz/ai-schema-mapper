@@ -1,0 +1,12 @@
+# Base agent dependencies
+# -r requirements.txt
+
+# Foundry Hosted Agent HTTP host (Invocations protocol)
+fastapi 
+uvicorn[standard]
+
+# Foundry model gateway (models from the Foundry catalog) + Entra ID auth.
+# Used only when MODEL_PROVIDER=foundry.
+azure-identity
+azure-ai-projects            # provides AIProjectClient.get_openai_client(); pin to the
+                             # version that matches your Foundry project if needed.
